@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatiblent=" IE="edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>Document</title>
+        <script src="//aframe.io/releases/1.4.1/aframe.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.1/dist/mindar-image-aframe.prod.js"> </script>
+        <script type="module" src="/static/main.js"></script>
+</head>
+
+<body>
+        <a-scene mindar-image="imageTargetSrc: /static/resources/vizitineBack.mind; filterMinCF:0.0001; filterBeta: 0.001;"
+                vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" gesture-detector>
+                <a-assets>
+                        <a-asset-item id="cat" src="/static/resources/cat/kyciusAKyss.glb"></a-asset-item>
+                </a-assets>
+
+                <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+                <a-light type="point" color="white" position="0 1 0"></a-light>
+                <a-light type="ambient" intensity="10" color="white" position="0 1 0"><a-light>
+                        <a-entity id="example-target" mindar-image-target="targetIndex: 0">
+                                <a-entity rotation="0 0 0"
+                                        animation="property: rotation; to: 0 0 360; loop:true; dur: 30000; dir: normal; easing:linear">
+                                        <a-entity rotation="0 0 50">
+                                                <a-gltf-model rotation="270 180 0" position=".5 0 0"
+                                                        scale="1.5 1.5 1.5" gltf-model="#cat"
+                                                        animation-mixer="clip:kunasAction"
+                                                        gesture-handler
+                                                        >
+                                                </a-gltf-model>
+                                        </a-entity>
+                                </a-entity>
+                        </a-entity>
+
+        </a-scene>
+
+</body>
+
+</html>

@@ -7,10 +7,11 @@ const { dirname } = require('path');
 
 process.title = "demoNFT";
 
-app.use("/static",express.static('public'));
+app.use('/static',express.static('public'));
+app.use('/static',express.static('dist'));
 console.log(__dirname);
 app.get('/', function(request, response){
-    response.sendFile(path.join(__dirname + '/public/index.html'));
+    response.sendFile(path.join(__dirname + '/public/index3.html'));
 });
 
 https.createServer({
